@@ -1,3 +1,7 @@
 <h2>
   <%= @category.title %>
 </h2>
+
+<p>
+  <%= link_to "Add new listing", new_category_listing_path(@category) %>
+</p>
