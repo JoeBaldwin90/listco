@@ -1,0 +1,14 @@
+<%= form_for @category do |f| %>
+
+<% if @category.errors.any? %>
+      <% @category.errors.full_messages.each do |message| %>
+      <%= message %>
+      <% end %>
+<% end %>
+
+<%= simple_form_for @category do |f| %>
+  <%= f.input :title, placeholder: "Category name", :maxlength => 30 %>
+  <%= f.button :submit, value: "Create" %>
+<% end %>
+
+<% end %>
