@@ -2,12 +2,31 @@ class CategoriesController < ApplicationController
 
   def index
 
-    @categories = ["Jobs", "Ads", "Labour", "For Sale", "Events"]
+    @categories = Category.all
 
   end
 
   def new
+
     @category = Category.new
+
+  end
+
+  def create
+
+    # Create new row in the database using info in the form data
+    @category = Category.new(form_params)
+
+    @category.save
+
+    redirect_to root_path
+
+  end
+
+  def form_params
+
+    params.require(:category).permit(:title)
+
   end
 
 end
