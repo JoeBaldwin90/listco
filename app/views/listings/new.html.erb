@@ -1,1 +1,15 @@
-Hello world
+<%= form_for [@category, @listing] do |f| %>
+
+  <% if @listing.errors.any? %>
+    <% @listing.errors.full_messages.each do |message| %>
+    <%= message %>
+    <% end %>
+  <% end %>
+
+  <%= simple_form_for [@category, @listing] do |f| %>
+    <%= f.input :title, placeholder: "Listing title", :maxlength => 30 %>
+    <%= f.input :body, placeholder: "Type here..." %>
+    <%= f.button :submit, value: "Create" %>
+  <% end %>
+
+<% end %>
