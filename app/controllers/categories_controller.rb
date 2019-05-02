@@ -23,6 +23,13 @@ class CategoriesController < ApplicationController
 
   end
 
+  def show
+    
+    # stuff
+    @category = Category.find(params[:id])
+
+  end
+
   def form_params
 
     params.require(:category).permit(:title)
