@@ -1,11 +1,11 @@
 <h2><%= @category.title %></h2>
 
-<% @category.listings.each do |listing| %>
+<ul>
+  <% @category.listings.each do |listing| %>
+    <li><%= link_to listing.title, category_listing_path(@category, listing) %></li>
+  <% end %>
+</ul>
 
-  <p><%= link_to listing.title, category_listing_path(@category, listing) %></p>
-
-<% end %>
-
-<p>
+<p class="action">
   <%= link_to "Add new listing", new_category_listing_path(@category) %>
 </p>
